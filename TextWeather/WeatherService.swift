@@ -32,12 +32,12 @@ class WeatherService: NSObject {
         let jsonData: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: e) as NSDictionary
         //daily forecast
         if let today = ((jsonData["daily"] as? NSDictionary)?["data"] as? NSArray)?[0] as? NSDictionary {
-            let min = today["temperatureMin"].doubleValue
-            let max = today["temperatureMax"].doubleValue
-            let condition = today["summary"].stringValue
+            let min = today["temperatureMin"] as Double
+            let max = today["temperatureMax"] as Double
+            let condition = today["summary"] as String
             if let current = jsonData["currently"] as? NSDictionary {
-                let currentTemp = current["temperature"].doubleValue
-                let windSpeed = current["windSpeed"].doubleValue
+                let currentTemp = current["temperature"] as Double
+                let windSpeed = current["windSpeed"] as Double
                 let weatherData = WeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition)
             }
         }
