@@ -8,7 +8,6 @@
         <scene sceneID="isE-EF-Eva">
             <objects>
                 <navigationController id="48i-nZ-Gub" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Tb5-gH-gRf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -21,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-362" y="130"/>
         </scene>
-        <!--View Controller-->
+        <!--Display View Controller-->
         <scene sceneID="0iZ-Lq-cr2">
             <objects>
-                <viewController id="wEU-cW-p51" customClass="ViewController" customModule="TextWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wEU-cW-p51" customClass="DisplayViewController" customModule="TextWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kRP-YI-8Kd"/>
                         <viewControllerLayoutGuide type="bottom" id="ioR-eL-zRl"/>
@@ -33,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="89" translatesAutoresizingMaskIntoConstraints="NO" id="foe-fx-Uhw">
-                                <rect key="frame" x="20" y="20" width="89" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="foe-fx-Uhw">
+                                <rect key="frame" x="20" y="20" width="440" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Hello World">
                                         <attributes>
@@ -48,9 +47,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="foe-fx-Uhw" firstAttribute="leading" secondItem="py8-1z-d4q" secondAttribute="leading" constant="20" id="Ask-Yz-Kcb"/>
+                            <constraint firstAttribute="trailing" secondItem="foe-fx-Uhw" secondAttribute="trailing" constant="20" id="Sfq-Yd-ZWb"/>
+                            <constraint firstItem="foe-fx-Uhw" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="20" id="qMc-I9-glR"/>
+                            <constraint firstItem="ioR-eL-zRl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="foe-fx-Uhw" secondAttribute="bottom" constant="20" id="yAX-tx-WQC"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
+                    <connections>
+                        <outlet property="text" destination="foe-fx-Uhw" id="CIR-Mj-guE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3G-Jj-ngZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

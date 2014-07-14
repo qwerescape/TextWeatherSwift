@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
 class WeatherService: NSObject {
     let remoteWeatherServiceDelegate: RemoteWeatherServiceDelegate
-    
+    var displayDelegate: DisplayDelegate? = nil
+    var cityName: String? = nil;
     init() {
         remoteWeatherServiceDelegate = RemoteWeatherServiceDelegate()
         super.init()
@@ -20,7 +20,8 @@ class WeatherService: NSObject {
         }
     }
     
-    func getCurrentWeatherFor(latitude lat: Double, longitude lng: Double){
+    func getCurrentWeatherFor(latitude lat: Double, longitude lng: Double, cityName city: String){
+        cityName = city;
         let request = NSURLRequest(URL: NSURL(string: NSString(format: "https://api.forecast.io/forecast/272c50e5cbaead39cdaa744c9a2d69e9/%f,%f", lat, lng)),
             cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy,
             timeoutInterval:30.0)
@@ -38,10 +39,11 @@ class WeatherService: NSObject {
             if let current = jsonData["currently"] as? NSDictionary {
                 let currentTemp = current["temperature"] as Double
                 let windSpeed = current["windSpeed"] as Double
-                let weatherData = WeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition)
+                var weatherData = WeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition, city:cityName!)
+                if (displayDelegate) {
+                    displayDelegate!.receivedWeatherData(weatherData)
+                }
             }
         }
-        //[self updateWeather];
-
     }
 }

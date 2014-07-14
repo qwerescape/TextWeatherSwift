@@ -10,5 +10,5 @@ import Foundation
 
 struct WeatherData {
     var high, low, current, wind: Double
-    var condition: String
+    var condition, city: String
 }
