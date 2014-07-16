@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import MapKit
 import CoreLocation
 protocol DisplayDelegate {
     func receivedWeatherData(data: WeatherData)
 }
-class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate, MKReverseGeocoderDelegate{
+class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate{
     @IBOutlet var text: UILabel
     var defaultText = "Hello you are in {location}, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current}"
     var locationManager: CLLocationManager!
@@ -31,15 +30,25 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         super.didReceiveMemoryWarning()
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!){
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
         NSLog("located")
         manager.stopUpdatingLocation()
         if let loc: CLLocation = locations[0] as? CLLocation {
             let lat = loc.coordinate.latitude
             let lng = loc.coordinate.longitude
-            let reverseGeoCoder: MKReverseGeocoder = MKReverseGeocoder(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng))
-            reverseGeoCoder.delegate = self
-            reverseGeoCoder.start()
+            let reverseGeoCoder: CLGeocoder = CLGeocoder()
+            reverseGeoCoder.reverseGeocodeLocation(loc) {
+                (resultArray, error)-> Void in
+                if resultArray.count <= 0 {
+                    //check error
+                    NSLog("Error occurred because of %s", error.description)
+                } else {
+                    let placemark = resultArray[0] as CLPlacemark
+                    let weatherService = WeatherService()
+                    weatherService.displayDelegate = self
+                    weatherService.getCurrentWeatherFor(latitude: lat, longitude: lng, cityName: placemark.locality)
+                }
+            }
         }
     }
     
@@ -48,24 +57,15 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     }
     
     func receivedWeatherData(data: WeatherData) {
-        let newString = defaultText.stringByReplacingOccurrencesOfString("{location}", withString: data.city, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        text.attributedText = NSAttributedString(string: newString)
+        let newString = defaultText
+        //        UIColor *specialFontColor=[UIColor colorWithRed:0.87 green:0.352 blue:0.371 alpha:1];
+        let specialCharStyle = [NSBackgroundColorAttributeName: UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)]
+        let city = NSAttributedString(string: data.city, attributes: specialCharStyle)
+        var attrWeatherText = NSMutableAttributedString(string: defaultText)
+        let cityRange = (attrWeatherText.string as NSString).rangeOfString("{location}")
+        attrWeatherText.addAttributes(specialCharStyle, range: cityRange)
+        attrWeatherText.replaceCharactersInRange(cityRange, withAttributedString: city)
+        text.attributedText = attrWeatherText
     }
-    
-    func reverseGeocoder(geocoder: MKReverseGeocoder!, didFindPlacemark placemark: MKPlacemark!) {
-        let (lat,lng) = (placemark.location.coordinate.latitude, placemark.location.coordinate.longitude)
-        let weatherService = WeatherService()
-        weatherService.displayDelegate = self
-        weatherService.getCurrentWeatherFor(latitude: lat, longitude: lng, cityName: placemark.locality)
-    }
-    
-    // There are at least two types of errors:
-    //   - Errors sent up from the underlying connection (temporary condition)
-    //   - Result not found errors (permanent condition).  The result not found errors
-    //     will have the domain MKErrorDomain and the code MKErrorPlacemarkNotFound
-    func reverseGeocoder(geocoder: MKReverseGeocoder!, didFailWithError error: NSError!) {
-        NSLog("Error reverse geocoding")
-    }
-
 }
 
