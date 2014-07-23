@@ -17,7 +17,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
-        text.attributedText = NSAttributedString(string: "Locating you...")
+        //text.attributedText = NSAttributedString(string: "Locating you...")
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 20000
@@ -57,14 +57,31 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     }
     
     func receivedWeatherData(data: WeatherData) {
-        let newString = defaultText
-        //        UIColor *specialFontColor=[UIColor colorWithRed:0.87 green:0.352 blue:0.371 alpha:1];
-        let specialCharStyle = [NSBackgroundColorAttributeName: UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)]
-        let city = NSAttributedString(string: data.city, attributes: specialCharStyle)
         var attrWeatherText = NSMutableAttributedString(string: defaultText)
-        let cityRange = (attrWeatherText.string as NSString).rangeOfString("{location}")
-        attrWeatherText.addAttributes(specialCharStyle, range: cityRange)
-        attrWeatherText.replaceCharactersInRange(cityRange, withAttributedString: city)
+        
+        //stylize special texts
+        let specialCharStyle = [NSForegroundColorAttributeName: UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)]
+        var specialDictionary: [String:NSAttributedString] = [:]
+        let city = NSAttributedString(string: data.city, attributes: specialCharStyle)
+        specialDictionary["{location}"] = city
+        let high = NSAttributedString(string: "\(data.high)", attributes: specialCharStyle)
+        specialDictionary["{high}"] = high
+        let low = NSAttributedString(string: "\(data.low)", attributes: specialCharStyle)
+        specialDictionary["{low}"] = low
+        let current = NSAttributedString(string: "\(data.current)", attributes: specialCharStyle)
+        specialDictionary["{current}"] = current
+        let wind = NSAttributedString(string: "\(data.wind)", attributes: specialCharStyle)
+        specialDictionary["{wind}"] = wind
+        let condition = NSAttributedString(string: "\(data.condition)", attributes: specialCharStyle)
+        specialDictionary["{condition}"] = condition
+        
+        for (keyword, specialString) in specialDictionary {
+            let range = (attrWeatherText.string as NSString).rangeOfString(keyword)
+            if range.location != NSNotFound {
+                attrWeatherText.replaceCharactersInRange(range, withAttributedString: specialString)
+            }
+        }
+        
         text.attributedText = attrWeatherText
     }
 }
