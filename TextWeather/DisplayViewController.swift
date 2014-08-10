@@ -12,8 +12,8 @@ protocol DisplayDelegate {
     func receivedWeatherData(data: WeatherData)
 }
 class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate{
-    @IBOutlet var text: UILabel
-    var defaultText = "Hello you are in {location}, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current} asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf asdf;lkjasdf ;lkjasdf adsfa;lkjasdf a;lkjsdf ;lkjasdf ;lkjasdf; kjasdf caonima"
+    @IBOutlet weak var text: UILabel!
+    var defaultText = "Hello you are in {location}, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current}"
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +87,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
             }
         }
         
-        text.attributedText = attrWeatherText
+        //text.attributedText = attrWeatherText
     }
 }
 

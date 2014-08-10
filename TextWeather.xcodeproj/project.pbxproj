@@ -12,6 +12,7 @@
 		CC22FD291978C84E0071649A /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22FD251978C84E0071649A /* settings@2x.png */; };
 		CC22FD2A1978C84E0071649A /* c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22FD261978C84E0071649A /* c@2x.png */; };
 		CC22FD2B1978C84E0071649A /* f@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22FD271978C84E0071649A /* f@2x.png */; };
+		CC34AB5319932AE200A6ADD5 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC34AB5219932AE200A6ADD5 /* Cartography.framework */; };
 		CC363F4E1953EC9700408701 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC45EDFC1946BB0B00381648 /* CoreLocation.framework */; };
 		CC363F501953EDAD00408701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC363F4F1953EDAD00408701 /* Foundation.framework */; };
 		CC45EDFB1945667D00381648 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45EDFA1945667D00381648 /* WeatherService.swift */; };
@@ -41,6 +42,7 @@
 		CC22FD251978C84E0071649A /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		CC22FD261978C84E0071649A /* c@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c@2x.png"; sourceTree = "<group>"; };
 		CC22FD271978C84E0071649A /* f@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "f@2x.png"; sourceTree = "<group>"; };
+		CC34AB5219932AE200A6ADD5 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = "../../../Library/Developer/Xcode/DerivedData/TextWeatherWS-ermbwexsjfboklcpkkywkaxzveud/Build/Products/Debug-iphoneos/Cartography.framework"; sourceTree = "<group>"; };
 		CC363F4F1953EDAD00408701 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CC45EDFA1945667D00381648 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		CC45EDFC1946BB0B00381648 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC34AB5319932AE200A6ADD5 /* Cartography.framework in Frameworks */,
 				CC363F501953EDAD00408701 /* Foundation.framework in Frameworks */,
 				CC363F4E1953EC9700408701 /* CoreLocation.framework in Frameworks */,
 			);
@@ -81,6 +84,7 @@
 		CC8037E8193ED5FB007D5713 = {
 			isa = PBXGroup;
 			children = (
+				CC34AB5219932AE200A6ADD5 /* Cartography.framework */,
 				CC363F4F1953EDAD00408701 /* Foundation.framework */,
 				CC45EDFC1946BB0B00381648 /* CoreLocation.framework */,
 				CC8037F3193ED5FB007D5713 /* TextWeather */,
@@ -369,6 +373,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cartography-aszcctdpknvqhsgyqffpxstjcbbh/Build/Products/Debug-iphoneos",
+					"/Users/chaoqu/Documents/dev/Cartography/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWeatherWS-ermbwexsjfboklcpkkywkaxzveud/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TextWeather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,6 +391,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cartography-aszcctdpknvqhsgyqffpxstjcbbh/Build/Products/Debug-iphoneos",
+					"/Users/chaoqu/Documents/dev/Cartography/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/TextWeatherWS-ermbwexsjfboklcpkkywkaxzveud/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TextWeather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

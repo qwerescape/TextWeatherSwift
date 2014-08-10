@@ -11,7 +11,7 @@ class WeatherService: NSObject {
     let remoteWeatherServiceDelegate: RemoteWeatherServiceDelegate
     var displayDelegate: DisplayDelegate? = nil
     var cityName: String? = nil;
-    init() {
+    override init() {
         remoteWeatherServiceDelegate = RemoteWeatherServiceDelegate()
         super.init()
         remoteWeatherServiceDelegate.finishedCallback = getTodayWeather
@@ -40,7 +40,7 @@ class WeatherService: NSObject {
                 let currentTemp = current["temperature"] as Double
                 let windSpeed = current["windSpeed"] as Double
                 var weatherData = WeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition, city:cityName!)
-                if (displayDelegate) {
+                if displayDelegate != nil {
                     displayDelegate!.receivedWeatherData(weatherData)
                 }
             }
