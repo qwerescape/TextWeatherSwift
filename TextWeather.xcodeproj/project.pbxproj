@@ -17,13 +17,12 @@
 		CC363F501953EDAD00408701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC363F4F1953EDAD00408701 /* Foundation.framework */; };
 		CC45EDFB1945667D00381648 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45EDFA1945667D00381648 /* WeatherService.swift */; };
 		CC8037F7193ED5FB007D5713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8037F6193ED5FB007D5713 /* AppDelegate.swift */; };
-		CC8037FA193ED5FB007D5713 /* TextWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC8037F8193ED5FB007D5713 /* TextWeather.xcdatamodeld */; };
 		CC8037FC193ED5FB007D5713 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8037FB193ED5FB007D5713 /* DisplayViewController.swift */; };
 		CC8037FF193ED5FB007D5713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8037FD193ED5FB007D5713 /* Main.storyboard */; };
 		CC803801193ED5FB007D5713 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC803800193ED5FB007D5713 /* Images.xcassets */; };
 		CC80380D193ED5FB007D5713 /* TextWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80380C193ED5FB007D5713 /* TextWeatherTests.swift */; };
 		CC80381719441E16007D5713 /* RemoteWeatherServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80381619441E16007D5713 /* RemoteWeatherServiceDelegate.swift */; };
-		CC92B871196CF78B00F8D009 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92B870196CF78B00F8D009 /* WeatherData.swift */; };
+		CC92B871196CF78B00F8D009 /* RemoteWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92B870196CF78B00F8D009 /* RemoteWeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +48,6 @@
 		CC8037F1193ED5FB007D5713 /* TextWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8037F5193ED5FB007D5713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8037F6193ED5FB007D5713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC8037F9193ED5FB007D5713 /* TextWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TextWeather.xcdatamodel; sourceTree = "<group>"; };
 		CC8037FB193ED5FB007D5713 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		CC8037FE193ED5FB007D5713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC803800193ED5FB007D5713 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,7 @@
 		CC80380B193ED5FB007D5713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC80380C193ED5FB007D5713 /* TextWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWeatherTests.swift; sourceTree = "<group>"; };
 		CC80381619441E16007D5713 /* RemoteWeatherServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteWeatherServiceDelegate.swift; sourceTree = "<group>"; };
-		CC92B870196CF78B00F8D009 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		CC92B870196CF78B00F8D009 /* RemoteWeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteWeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +107,10 @@
 				CC8037FB193ED5FB007D5713 /* DisplayViewController.swift */,
 				CC8037FD193ED5FB007D5713 /* Main.storyboard */,
 				CC803800193ED5FB007D5713 /* Images.xcassets */,
-				CC8037F8193ED5FB007D5713 /* TextWeather.xcdatamodeld */,
 				CC8037F4193ED5FB007D5713 /* Supporting Files */,
 				CC80381619441E16007D5713 /* RemoteWeatherServiceDelegate.swift */,
 				CC45EDFA1945667D00381648 /* WeatherService.swift */,
-				CC92B870196CF78B00F8D009 /* WeatherData.swift */,
+				CC92B870196CF78B00F8D009 /* RemoteWeatherData.swift */,
 				CC128F251980AA98005415EC /* EditViewController.swift */,
 			);
 			path = TextWeather;
@@ -255,8 +252,7 @@
 				CC8037FC193ED5FB007D5713 /* DisplayViewController.swift in Sources */,
 				CC8037F7193ED5FB007D5713 /* AppDelegate.swift in Sources */,
 				CC80381719441E16007D5713 /* RemoteWeatherServiceDelegate.swift in Sources */,
-				CC92B871196CF78B00F8D009 /* WeatherData.swift in Sources */,
-				CC8037FA193ED5FB007D5713 /* TextWeather.xcdatamodeld in Sources */,
+				CC92B871196CF78B00F8D009 /* RemoteWeatherData.swift in Sources */,
 				CC128F261980AA98005415EC /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cartography-aszcctdpknvqhsgyqffpxstjcbbh/Build/Products/Debug-iphoneos",
@@ -383,6 +380,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -391,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Cartography-aszcctdpknvqhsgyqffpxstjcbbh/Build/Products/Debug-iphoneos",
@@ -471,19 +470,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CC8037F8193ED5FB007D5713 /* TextWeather.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CC8037F9193ED5FB007D5713 /* TextWeather.xcdatamodel */,
-			);
-			currentVersion = CC8037F9193ED5FB007D5713 /* TextWeather.xcdatamodel */;
-			path = TextWeather.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CC8037E9193ED5FB007D5713 /* Project object */;
 }

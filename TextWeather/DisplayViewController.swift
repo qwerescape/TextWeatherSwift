@@ -9,14 +9,15 @@
 import UIKit
 import CoreLocation
 protocol DisplayDelegate {
-    func receivedWeatherData(data: WeatherData)
+    func receivedWeatherData(data: RemoteWeatherData)
 }
-class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate{
-    @IBOutlet weak var text: UILabel!
-    var defaultText = "Hello you are in {location}, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current}"
+class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate, NSTextStorageDelegate{
+    @IBOutlet weak var weatherTextView: UITextView!
+    var weatherText = NSUserDefaults.standardUserDefaults().stringForKey("UserText")
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        weatherTextView.textStorage.delegate = self
         //text.attributedText = NSAttributedString(string: "Locating you...")
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -61,8 +62,8 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         NSLog("Error getting location coordinates");
     }
     
-    func receivedWeatherData(data: WeatherData) {
-        var attrWeatherText = NSMutableAttributedString(string: defaultText)
+    func receivedWeatherData(data: RemoteWeatherData) {
+        var attrWeatherText = NSMutableAttributedString(string: weatherText)
         
         //stylize special texts
         let specialCharStyle = [NSForegroundColorAttributeName: UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)]
@@ -87,7 +88,10 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
             }
         }
         
-        //text.attributedText = attrWeatherText
+        weatherTextView.attributedText = attrWeatherText
+    }
+    func textStorage(textStorage: NSTextStorage!, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        NSLog("I am here")
     }
 }
 

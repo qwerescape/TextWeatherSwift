@@ -68,6 +68,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="weatherTextView" destination="ee7-L3-SJS" id="Z7I-2c-Vin"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3G-Jj-ngZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

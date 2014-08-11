@@ -39,7 +39,7 @@ class WeatherService: NSObject {
             if let current = jsonData["currently"] as? NSDictionary {
                 let currentTemp = current["temperature"] as Double
                 let windSpeed = current["windSpeed"] as Double
-                var weatherData = WeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition, city:cityName!)
+                var weatherData = RemoteWeatherData(high: max, low: min, current: currentTemp, wind: windSpeed, condition: condition, city:cityName!)
                 if displayDelegate != nil {
                     displayDelegate!.receivedWeatherData(weatherData)
                 }
