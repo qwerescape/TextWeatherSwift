@@ -49,21 +49,19 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS">
-                                <rect key="frame" x="20" y="20" width="560" height="426"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <rect key="frame" x="8" y="8" width="584" height="450"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ee7-L3-SJS" secondAttribute="trailing" constant="20" id="1Jw-bq-kSv"/>
+                            <constraint firstAttribute="trailing" secondItem="ee7-L3-SJS" secondAttribute="trailing" constant="8" id="1Jw-bq-kSv"/>
                             <constraint firstAttribute="centerX" secondItem="kgE-jK-quL" secondAttribute="centerX" id="5GT-81-WaA"/>
-                            <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="20" id="IRu-9S-YDm"/>
-                            <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="py8-1z-d4q" secondAttribute="leading" constant="20" id="JR2-pF-AC8"/>
+                            <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="8" id="IRu-9S-YDm"/>
+                            <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="py8-1z-d4q" secondAttribute="leading" constant="8" id="JR2-pF-AC8"/>
                             <constraint firstItem="ioR-eL-zRl" firstAttribute="top" secondItem="kgE-jK-quL" secondAttribute="bottom" constant="20" id="aZi-ns-oX5"/>
-                            <constraint firstItem="kgE-jK-quL" firstAttribute="top" secondItem="ee7-L3-SJS" secondAttribute="bottom" constant="20" id="hyB-ve-kPE"/>
+                            <constraint firstItem="kgE-jK-quL" firstAttribute="top" secondItem="ee7-L3-SJS" secondAttribute="bottom" constant="8" id="hyB-ve-kPE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>

@@ -17,6 +17,9 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let grainyPaper = UIImage(named: "grain.jpg")
+        self.view.backgroundColor = UIColor(patternImage: grainyPaper)
+        weatherTextView.backgroundColor = UIColor(patternImage: grainyPaper)
         weatherTextView.textStorage.delegate = self
         //text.attributedText = NSAttributedString(string: "Locating you...")
         locationManager = CLLocationManager()
@@ -65,8 +68,24 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     func receivedWeatherData(data: RemoteWeatherData) {
         var attrWeatherText = NSMutableAttributedString(string: weatherText)
         
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        
+        let specialFont = UIFont(name: "AmericanTypewriter", size: 17.0)
+        let specialFontColor = UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)
+        
+        let normalFontColor = UIColor(red:0.106, green:0.106, blue:0.106, alpha:1)
+        let normalFont = UIFont(name: "AmericanTypewriter-Light", size: 17.0)
+        attrWeatherText.addAttributes([NSForegroundColorAttributeName: normalFontColor,
+            NSTextEffectAttributeName: NSTextEffectLetterpressStyle,
+            NSFontAttributeName: normalFont,
+            NSParagraphStyleAttributeName: paragraphStyle,
+            NSKernAttributeName: 1], range: NSMakeRange(0, attrWeatherText.length))
         //stylize special texts
-        let specialCharStyle = [NSForegroundColorAttributeName: UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)]
+        let specialCharStyle = [NSForegroundColorAttributeName: specialFontColor,
+            NSFontAttributeName: specialFont,
+            NSParagraphStyleAttributeName: paragraphStyle
+        ]
         var specialDictionary: [String:NSAttributedString] = [:]
         let city = NSAttributedString(string: data.city, attributes: specialCharStyle)
         specialDictionary["{location}"] = city
@@ -91,7 +110,6 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         weatherTextView.attributedText = attrWeatherText
     }
     func textStorage(textStorage: NSTextStorage!, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
-        NSLog("I am here")
     }
 }
 

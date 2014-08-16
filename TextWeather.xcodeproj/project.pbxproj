@@ -16,6 +16,9 @@
 		CC363F4E1953EC9700408701 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC45EDFC1946BB0B00381648 /* CoreLocation.framework */; };
 		CC363F501953EDAD00408701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC363F4F1953EDAD00408701 /* Foundation.framework */; };
 		CC45EDFB1945667D00381648 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45EDFA1945667D00381648 /* WeatherService.swift */; };
+		CC5043D2199B1C1800D2FBF2 /* Lined@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC5043D1199B1C1800D2FBF2 /* Lined@2x.png */; };
+		CC5043D4199B207900D2FBF2 /* grain@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC5043D3199B207900D2FBF2 /* grain@2x.jpg */; };
+		CC5043D6199B225000D2FBF2 /* grainy2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC5043D5199B225000D2FBF2 /* grainy2@2x.jpg */; };
 		CC8037F7193ED5FB007D5713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8037F6193ED5FB007D5713 /* AppDelegate.swift */; };
 		CC8037FC193ED5FB007D5713 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8037FB193ED5FB007D5713 /* DisplayViewController.swift */; };
 		CC8037FF193ED5FB007D5713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8037FD193ED5FB007D5713 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 		CC363F4F1953EDAD00408701 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CC45EDFA1945667D00381648 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		CC45EDFC1946BB0B00381648 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC5043D1199B1C1800D2FBF2 /* Lined@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lined@2x.png"; sourceTree = "<group>"; };
+		CC5043D3199B207900D2FBF2 /* grain@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grain@2x.jpg"; sourceTree = "<group>"; };
+		CC5043D5199B225000D2FBF2 /* grainy2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grainy2@2x.jpg"; sourceTree = "<group>"; };
 		CC8037F1193ED5FB007D5713 /* TextWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8037F5193ED5FB007D5713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8037F6193ED5FB007D5713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 		CC8037F4193ED5FB007D5713 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC5043D5199B225000D2FBF2 /* grainy2@2x.jpg */,
+				CC5043D3199B207900D2FBF2 /* grain@2x.jpg */,
+				CC5043D1199B1C1800D2FBF2 /* Lined@2x.png */,
 				CC22FD241978C84E0071649A /* refresh@2x.png */,
 				CC22FD251978C84E0071649A /* settings@2x.png */,
 				CC22FD261978C84E0071649A /* c@2x.png */,
@@ -226,10 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC8037FF193ED5FB007D5713 /* Main.storyboard in Resources */,
+				CC5043D6199B225000D2FBF2 /* grainy2@2x.jpg in Resources */,
+				CC5043D4199B207900D2FBF2 /* grain@2x.jpg in Resources */,
 				CC22FD2A1978C84E0071649A /* c@2x.png in Resources */,
 				CC22FD291978C84E0071649A /* settings@2x.png in Resources */,
 				CC22FD281978C84E0071649A /* refresh@2x.png in Resources */,
 				CC803801193ED5FB007D5713 /* Images.xcassets in Resources */,
+				CC5043D2199B1C1800D2FBF2 /* Lined@2x.png in Resources */,
 				CC22FD2B1978C84E0071649A /* f@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
