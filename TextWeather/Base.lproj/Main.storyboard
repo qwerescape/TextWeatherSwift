@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,6 +34,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-Zw-Xju">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u2Y-Zw-Xju" secondAttribute="height" multiplier="1:1" id="BeM-CS-ejN"/>
+                                    <constraint firstAttribute="height" constant="200" id="d8l-Sm-bva"/>
+                                </constraints>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-7V-iuz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AEO-y2-Lhh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgE-jK-quL">
                                 <rect key="frame" x="275" y="466" width="50" height="50"/>
                                 <state key="normal" backgroundImage="settings.png">
@@ -48,8 +64,9 @@
                                     <segue destination="EhK-9f-y0F" kind="show" id="ajC-4d-S6F"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS">
                                 <rect key="frame" x="8" y="8" width="584" height="450"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -60,13 +77,18 @@
                             <constraint firstAttribute="centerX" secondItem="kgE-jK-quL" secondAttribute="centerX" id="5GT-81-WaA"/>
                             <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="8" id="IRu-9S-YDm"/>
                             <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="py8-1z-d4q" secondAttribute="leading" constant="8" id="JR2-pF-AC8"/>
+                            <constraint firstAttribute="width" secondItem="cdN-7V-iuz" secondAttribute="width" id="QJI-Y3-TsI"/>
+                            <constraint firstAttribute="height" secondItem="cdN-7V-iuz" secondAttribute="height" id="Ro7-Wm-wYN"/>
                             <constraint firstItem="ioR-eL-zRl" firstAttribute="top" secondItem="kgE-jK-quL" secondAttribute="bottom" constant="20" id="aZi-ns-oX5"/>
+                            <constraint firstAttribute="centerY" secondItem="cdN-7V-iuz" secondAttribute="centerY" id="e7U-U8-oiZ"/>
                             <constraint firstItem="kgE-jK-quL" firstAttribute="top" secondItem="ee7-L3-SJS" secondAttribute="bottom" constant="8" id="hyB-ve-kPE"/>
+                            <constraint firstAttribute="centerX" secondItem="cdN-7V-iuz" secondAttribute="centerX" id="mN7-On-oV6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="weatherImageView" destination="u2Y-Zw-Xju" id="hOd-nM-JNM"/>
                         <outlet property="weatherTextView" destination="ee7-L3-SJS" id="Z7I-2c-Vin"/>
                     </connections>
                 </viewController>

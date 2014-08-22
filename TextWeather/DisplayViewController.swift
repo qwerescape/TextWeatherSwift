@@ -12,15 +12,29 @@ protocol DisplayDelegate {
     func receivedWeatherData(data: RemoteWeatherData)
 }
 class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate, NSTextStorageDelegate{
+    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var weatherTextView: UITextView!
     var weatherText = NSUserDefaults.standardUserDefaults().stringForKey("UserText")
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let grainyPaper = UIImage(named: "grain.jpg")
+        let grainyPaper = UIImage(named: "grainy-white.jpg")
         self.view.backgroundColor = UIColor(patternImage: grainyPaper)
-        weatherTextView.backgroundColor = UIColor(patternImage: grainyPaper)
+//        weatherTextView.backgroundColor = UIColor(patternImage: grainyPaper)
         weatherTextView.textStorage.delegate = self
+        weatherTextView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.TiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -20
+        vertical.maximumRelativeValue = 20
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: UIInterpolatingMotionEffectType.TiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -20
+        horizontal.maximumRelativeValue = 20
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [vertical, horizontal]
+        weatherImageView.image = UIImage(named: "sun.png")
+        weatherImageView.addMotionEffect(group)
+        
+        
         //text.attributedText = NSAttributedString(string: "Locating you...")
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -33,6 +47,14 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     override func viewWillAppear(animated: Bool) {
         self.navigationController.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(2, delay: 0, options: .Repeat | .Autoreverse | .CurveEaseInOut, animations: {
+//            self.weatherImageView.center = CGPoint(x: self.weatherImageView.center.x + 20, y: self.weatherImageView.center.y + 4)
+            self.weatherImageView.transform = CGAffineTransformMakeScale(1.3,1.3)
+            }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,13 +93,13 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
         
-        let specialFont = UIFont(name: "AmericanTypewriter", size: 17.0)
+        let specialFont = UIFont(name: "GillSans-Light", size: 24.0)
         let specialFontColor = UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)
         
         let normalFontColor = UIColor(red:0.106, green:0.106, blue:0.106, alpha:1)
-        let normalFont = UIFont(name: "AmericanTypewriter-Light", size: 17.0)
+        let normalFont = UIFont(name: "GillSans-Light", size: 24.0)
         attrWeatherText.addAttributes([NSForegroundColorAttributeName: normalFontColor,
-            NSTextEffectAttributeName: NSTextEffectLetterpressStyle,
+//            NSTextEffectAttributeName: NSTextEffectLetterpressStyle,
             NSFontAttributeName: normalFont,
             NSParagraphStyleAttributeName: paragraphStyle,
             NSKernAttributeName: 1], range: NSMakeRange(0, attrWeatherText.length))
