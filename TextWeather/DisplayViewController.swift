@@ -12,17 +12,18 @@ protocol DisplayDelegate {
     func receivedWeatherData(data: RemoteWeatherData)
 }
 class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate, NSTextStorageDelegate{
+    @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var weatherTextView: UITextView!
     var weatherText = NSUserDefaults.standardUserDefaults().stringForKey("UserText")
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let grainyPaper = UIImage(named: "grainy-white.jpg")
-        self.view.backgroundColor = UIColor(patternImage: grainyPaper)
+        let grainyPaper = UIImage(named: "grainy.jpg")
+//        self.view.backgroundColor = UIColor(patternImage: grainyPaper)
 //        weatherTextView.backgroundColor = UIColor(patternImage: grainyPaper)
         weatherTextView.textStorage.delegate = self
-        weatherTextView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        weatherTextView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.TiltAlongVerticalAxis)
         vertical.minimumRelativeValue = -20
         vertical.maximumRelativeValue = 20
@@ -31,7 +32,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         horizontal.maximumRelativeValue = 20
         let group = UIMotionEffectGroup()
         group.motionEffects = [vertical, horizontal]
-        weatherImageView.image = UIImage(named: "sun.png")
+        weatherImageView.image = UIImage(named: "sunpencil.png")
         weatherImageView.addMotionEffect(group)
         
         
@@ -52,8 +53,8 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         UIView.animateWithDuration(2, delay: 0, options: .Repeat | .Autoreverse | .CurveEaseInOut, animations: {
-//            self.weatherImageView.center = CGPoint(x: self.weatherImageView.center.x + 20, y: self.weatherImageView.center.y + 4)
-            self.weatherImageView.transform = CGAffineTransformMakeScale(1.3,1.3)
+            self.weatherImageView.center = CGPoint(x: self.weatherImageView.center.x + 20, y: self.weatherImageView.center.y + 4)
+//            self.weatherImageView.transform = CGAffineTransformMakeScale(1.3,1.3)
             }, completion: nil)
     }
 
