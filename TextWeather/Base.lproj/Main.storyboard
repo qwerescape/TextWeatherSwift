@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -37,27 +36,33 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-Zw-Xju">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-j9-Wip">
+                                <rect key="frame" x="0.0" y="64" width="600" height="460"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ok there" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-Yp-25u" userLabel="yesterday">
+                                        <rect key="frame" x="0.0" y="-20" width="600" height="33"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS" userLabel="today">
+                                        <rect key="frame" x="0.0" y="17" width="600" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="u2Y-Zw-Xju" secondAttribute="height" multiplier="1:1" id="BeM-CS-ejN"/>
-                                    <constraint firstAttribute="height" constant="200" id="d8l-Sm-bva"/>
+                                    <constraint firstAttribute="bottom" secondItem="ee7-L3-SJS" secondAttribute="bottom" id="689-zR-BMT"/>
+                                    <constraint firstAttribute="trailing" secondItem="ee7-L3-SJS" secondAttribute="trailing" id="EoS-WO-dIc"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" id="JIz-eB-58U"/>
+                                    <constraint firstAttribute="trailing" secondItem="WfI-Yp-25u" secondAttribute="trailing" id="QyL-Tk-ewj"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="UoV-lk-DYu"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="WfI-Yp-25u" secondAttribute="bottom" constant="4" id="hbh-Da-B7Z"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" id="ikr-le-qsQ"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="vu2-Eh-LFR"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="top" constant="-60" id="xqP-ES-cJT"/>
                                 </constraints>
-                            </imageView>
-                            <visualEffectView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-7V-iuz" userLabel="whole screen blur">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AEO-y2-Lhh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS">
-                                <rect key="frame" x="8" y="28" width="584" height="506"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsC-N3-SWd">
                                 <rect key="frame" x="275" y="542" width="50" height="50"/>
                                 <state key="normal" backgroundImage="settings.png">
@@ -73,21 +78,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="py8-1z-d4q" secondAttribute="top" constant="28" id="Mfy-Ki-IYv"/>
-                            <constraint firstAttribute="height" secondItem="cdN-7V-iuz" secondAttribute="height" id="Ro7-Wm-wYN"/>
-                            <constraint firstAttribute="width" secondItem="cdN-7V-iuz" secondAttribute="width" id="aXx-x3-Ibg"/>
-                            <constraint firstItem="gsC-N3-SWd" firstAttribute="top" secondItem="ee7-L3-SJS" secondAttribute="bottom" constant="8" id="d89-HB-bYH"/>
+                            <constraint firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="5N6-SP-nhc"/>
+                            <constraint firstItem="gsC-N3-SWd" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="bottom" constant="18" id="M8P-RG-O7d"/>
+                            <constraint firstAttribute="centerX" secondItem="MBm-j9-Wip" secondAttribute="centerX" id="dNF-Md-gbu"/>
                             <constraint firstAttribute="centerX" secondItem="gsC-N3-SWd" secondAttribute="centerX" id="dbJ-Fo-rUy"/>
-                            <constraint firstAttribute="centerY" secondItem="cdN-7V-iuz" secondAttribute="centerY" id="e7U-U8-oiZ"/>
-                            <constraint firstAttribute="trailing" secondItem="ee7-L3-SJS" secondAttribute="trailing" constant="8" id="ejv-YP-CdM"/>
-                            <constraint firstAttribute="centerX" secondItem="cdN-7V-iuz" secondAttribute="centerX" id="mN7-On-oV6"/>
-                            <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="py8-1z-d4q" secondAttribute="leading" constant="8" id="suT-nS-dIL"/>
+                            <constraint firstItem="MBm-j9-Wip" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" id="plG-gx-fD9"/>
                             <constraint firstItem="ioR-eL-zRl" firstAttribute="top" secondItem="gsC-N3-SWd" secondAttribute="bottom" constant="8" id="x3p-K4-Gyw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
                     <connections>
-                        <outlet property="weatherImageView" destination="u2Y-Zw-Xju" id="hOd-nM-JNM"/>
                         <outlet property="weatherTextView" destination="ee7-L3-SJS" id="Z7I-2c-Vin"/>
                     </connections>
                 </viewController>

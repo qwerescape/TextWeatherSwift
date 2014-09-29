@@ -14,7 +14,7 @@ class EditViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var weatherTextCarousel: UIScrollView!
     @IBOutlet weak var pageDots: UIPageControl!
     override func viewWillAppear(animated: Bool) {
-        self.navigationController.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillAppear(animated)
     }
 
