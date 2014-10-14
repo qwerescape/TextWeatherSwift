@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -37,29 +38,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-j9-Wip">
-                                <rect key="frame" x="0.0" y="64" width="600" height="460"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="462"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ok there" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-Yp-25u" userLabel="yesterday">
-                                        <rect key="frame" x="0.0" y="-20" width="600" height="33"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="ok there" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-Yp-25u" userLabel="yesterday">
+                                        <rect key="frame" x="15" y="-60" width="570" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS" userLabel="today">
-                                        <rect key="frame" x="0.0" y="17" width="600" height="33"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS" userLabel="today">
+                                        <rect key="frame" x="15" y="-19" width="570" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ee7-L3-SJS" secondAttribute="bottom" id="689-zR-BMT"/>
-                                    <constraint firstAttribute="trailing" secondItem="ee7-L3-SJS" secondAttribute="trailing" id="EoS-WO-dIc"/>
-                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" id="JIz-eB-58U"/>
-                                    <constraint firstAttribute="trailing" secondItem="WfI-Yp-25u" secondAttribute="trailing" id="QyL-Tk-ewj"/>
-                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="UoV-lk-DYu"/>
-                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="WfI-Yp-25u" secondAttribute="bottom" constant="4" id="hbh-Da-B7Z"/>
-                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" id="ikr-le-qsQ"/>
-                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="vu2-Eh-LFR"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" priority="250" id="Ga7-eJ-wra"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" multiplier="0.95" id="UoV-lk-DYu"/>
+                                    <constraint firstAttribute="trailing" secondItem="WfI-Yp-25u" secondAttribute="trailing" priority="250" id="evn-n8-BVJ"/>
+                                    <constraint firstAttribute="centerX" secondItem="ee7-L3-SJS" secondAttribute="centerX" id="ftY-Ld-kP7"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="WfI-Yp-25u" secondAttribute="bottom" constant="8" id="hbh-Da-B7Z"/>
+                                    <constraint firstAttribute="centerX" secondItem="WfI-Yp-25u" secondAttribute="centerX" id="la8-Zm-uSf"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" multiplier="0.95" id="vu2-Eh-LFR"/>
                                     <constraint firstItem="WfI-Yp-25u" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="top" constant="-60" id="xqP-ES-cJT"/>
                                 </constraints>
                             </scrollView>
@@ -79,16 +79,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="5N6-SP-nhc"/>
-                            <constraint firstItem="gsC-N3-SWd" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="bottom" constant="18" id="M8P-RG-O7d"/>
+                            <constraint firstItem="gsC-N3-SWd" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="bottom" constant="8" id="M8P-RG-O7d"/>
                             <constraint firstAttribute="centerX" secondItem="MBm-j9-Wip" secondAttribute="centerX" id="dNF-Md-gbu"/>
                             <constraint firstAttribute="centerX" secondItem="gsC-N3-SWd" secondAttribute="centerX" id="dbJ-Fo-rUy"/>
-                            <constraint firstItem="MBm-j9-Wip" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" id="plG-gx-fD9"/>
+                            <constraint firstItem="MBm-j9-Wip" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="8" id="plG-gx-fD9"/>
                             <constraint firstItem="ioR-eL-zRl" firstAttribute="top" secondItem="gsC-N3-SWd" secondAttribute="bottom" constant="8" id="x3p-K4-Gyw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
                     <connections>
                         <outlet property="weatherTextView" destination="ee7-L3-SJS" id="Z7I-2c-Vin"/>
+                        <outlet property="yesterday" destination="WfI-Yp-25u" id="jvP-dC-mnH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3G-Jj-ngZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

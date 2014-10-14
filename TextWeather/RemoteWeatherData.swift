@@ -10,5 +10,5 @@ import Foundation
 
 struct RemoteWeatherData {
     var high, low, current, wind: Double
-    var condition, city: String
+    var condition, city: String?
 }

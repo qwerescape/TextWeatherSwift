@@ -14,8 +14,10 @@ class RemoteWeatherServiceDelegate: NSObject, NSURLConnectionDataDelegate {
     var finishedCallback: ((NSData)->())?
     var progressCallback: ((CLongLong)->())?
     
-    override init() {
+    init(finishedCallback: (NSData)->(), progressCallback: (CLongLong)->()) {
         self.receivedData = NSMutableData()
+        self.finishedCallback = finishedCallback
+        self.progressCallback = progressCallback
         super.init()
     }
     
