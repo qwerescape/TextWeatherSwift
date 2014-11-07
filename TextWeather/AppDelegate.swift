@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         let defaultWeatherTexts = ["Hello you are in {location}, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current}, and today is {condition}",
-            "Hello beautiful, how is {location} looking today? Let me tell you how it's looking today, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current} and I have some extra long text that is not being used anywhere, i just like to type a really long message for fun s feel like is {current} and I have some extra long text that is not being used anywhere, i just like to type a really long message for fun",
+            "Hello beautiful, how is {location} looking today? Let me tell you how it's looking today, today's high is {high}, and today's low is {low}, and today's wind is {wind} and today's feel like is {current}",
             "{location}, high is {high}, low is {low}, wind is {wind} and feel like is {current}"]
         if NSUserDefaults.standardUserDefaults().objectForKey("AvailableTexts") == nil {
             NSUserDefaults.standardUserDefaults().setObject(defaultWeatherTexts, forKey: "AvailableTexts")

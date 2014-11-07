@@ -13,14 +13,21 @@ protocol DisplayDelegate {
     func receivedYesterdayWeather(highLow: String, compare: String)
 }
 class DisplayViewController: UIViewController, CLLocationManagerDelegate, DisplayDelegate, NSTextStorageDelegate{
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var weatherTextView: UITextView!
     @IBOutlet weak var yesterday: UITextView!
     var weatherText = NSUserDefaults.standardUserDefaults().stringForKey("UserText")
     var locationManager: CLLocationManager!
+    
+    let specialFont = UIFont(name: "Avenir-Light", size: 20.0)
+    let specialFontColor = UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)
+    let yesterdayFontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    let normalFontColor = UIColor(red:0, green:0, blue:0, alpha:1)
+    let normalFont = UIFont(name: "Avenir-Light", size: 20.0)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherTextView.textStorage.delegate = self
-        
         
         //text.attributedText = NSAttributedString(string: "Locating you...")
         locationManager = CLLocationManager()
@@ -29,11 +36,6 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization();
         locationManager.startUpdatingLocation()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,7 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
                     weatherService.displayDelegate = self
                     weatherService.getCurrentWeatherFor(latitude: lat, longitude: lng, cityName: placemark.locality)
                     weatherService.getYesterdayWeatherFor(latitude: lat, longitude: lng)
+                    self.navigationController?.navigationBar.topItem?.title = placemark.locality.uppercaseString
                 }
             }
         }
@@ -71,23 +74,15 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         var attrWeatherText = NSMutableAttributedString(string: weatherText!)
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 5
+        paragraphStyle.lineSpacing = 7
         
-        let specialFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)
-        let specialFontColor = UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)
-        
-        let normalFontColor = UIColor(red:0.106, green:0.106, blue:0.106, alpha:1)
-        let normalFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)
         attrWeatherText.addAttributes([NSForegroundColorAttributeName: normalFontColor,
-//            NSTextEffectAttributeName: NSTextEffectLetterpressStyle,
             NSFontAttributeName: normalFont,
             NSParagraphStyleAttributeName: paragraphStyle,
-            NSKernAttributeName: 1], range: NSMakeRange(0, attrWeatherText.length))
+            NSKernAttributeName: NSNumber(int: 1)], range: NSMakeRange(0, attrWeatherText.length))
         //stylize special texts
-        let specialCharStyle = [NSForegroundColorAttributeName: specialFontColor,
-            NSFontAttributeName: specialFont,
-            NSParagraphStyleAttributeName: paragraphStyle
-        ]
+        let specialCharStyle = [NSForegroundColorAttributeName: specialFontColor, NSFontAttributeName: specialFont!,NSParagraphStyleAttributeName: paragraphStyle] as Dictionary
+        
         var specialDictionary: [String:NSAttributedString] = [:]
         let city = NSAttributedString(string: data.city!, attributes: specialCharStyle)
         specialDictionary["{location}"] = city
@@ -118,18 +113,14 @@ class DisplayViewController: UIViewController, CLLocationManagerDelegate, Displa
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
         
-        let specialFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)
-        let specialFontColor = UIColor(red: 0.87, green: 0.352, blue: 0.371, alpha: 1)
-        let normalFontColor = UIColor(red:0.106, green:0.106, blue:0.106, alpha:1)
-        let normalFont = UIFont(name: "HelveticaNeue-Light", size: 18.0)
-        attrWeatherText.addAttributes([NSForegroundColorAttributeName: normalFontColor,
+        attrWeatherText.addAttributes([NSForegroundColorAttributeName: yesterdayFontColor,
             NSFontAttributeName: normalFont,
             NSParagraphStyleAttributeName: paragraphStyle,
             NSKernAttributeName: 1], range: NSMakeRange(0, attrWeatherText.length))
         
         //stylize special texts
         let specialCharStyle = [NSForegroundColorAttributeName: specialFontColor,
-            NSFontAttributeName: specialFont,
+            NSFontAttributeName: specialFont!,
             NSParagraphStyleAttributeName: paragraphStyle
         ]
         

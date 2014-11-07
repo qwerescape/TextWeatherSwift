@@ -23,7 +23,7 @@ class RemoteWeatherServiceDelegate: NSObject, NSURLConnectionDataDelegate {
     
     func startConnection(#request: NSURLRequest){
         let connection = NSURLConnection(request: request, delegate: self)
-        connection.start()
+        connection?.start()
     }
     
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {

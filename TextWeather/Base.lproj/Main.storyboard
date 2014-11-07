@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w0G-be-nZl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -9,11 +9,12 @@
         <scene sceneID="59J-Kv-NxE">
             <objects>
                 <navigationController title="Navigation Controller" id="w0G-be-nZl" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" opaque="NO" alpha="0.80000000000000016" contentMode="scaleToFill" id="c1h-7Y-a5M">
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" translucent="NO" id="c1h-7Y-a5M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
                     </navigationBar>
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-436.5" y="129"/>
         </scene>
-        <!--Display View Controller-->
+        <!--Searching-->
         <scene sceneID="0iZ-Lq-cr2">
             <objects>
                 <viewController id="wEU-cW-p51" customClass="DisplayViewController" customModule="TextWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,59 +35,53 @@
                         <viewControllerLayoutGuide type="bottom" id="ioR-eL-zRl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="py8-1z-d4q">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-j9-Wip">
-                                <rect key="frame" x="0.0" y="72" width="600" height="462"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-j9-Wip">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="ok there" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-Yp-25u" userLabel="yesterday">
-                                        <rect key="frame" x="15" y="-60" width="570" height="33"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Yesterday" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfI-Yp-25u" userLabel="yesterday" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="15" y="0.0" width="570" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS" userLabel="today">
-                                        <rect key="frame" x="15" y="-19" width="570" height="33"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Today" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-L3-SJS" userLabel="today">
+                                        <rect key="frame" x="15" y="33" width="570" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ee7-L3-SJS" secondAttribute="bottom" id="689-zR-BMT"/>
                                     <constraint firstItem="WfI-Yp-25u" firstAttribute="leading" secondItem="MBm-j9-Wip" secondAttribute="leading" priority="250" id="Ga7-eJ-wra"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="WfI-Yp-25u" secondAttribute="bottom" id="T1m-Sl-ns1"/>
                                     <constraint firstItem="WfI-Yp-25u" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" multiplier="0.95" id="UoV-lk-DYu"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="trailing" secondItem="WfI-Yp-25u" secondAttribute="trailing" id="ZYo-Rt-YU1"/>
                                     <constraint firstAttribute="trailing" secondItem="WfI-Yp-25u" secondAttribute="trailing" priority="250" id="evn-n8-BVJ"/>
-                                    <constraint firstAttribute="centerX" secondItem="ee7-L3-SJS" secondAttribute="centerX" id="ftY-Ld-kP7"/>
-                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="top" secondItem="WfI-Yp-25u" secondAttribute="bottom" constant="8" id="hbh-Da-B7Z"/>
+                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="leading" secondItem="WfI-Yp-25u" secondAttribute="leading" id="iUa-J2-yVG"/>
+                                    <constraint firstAttribute="bottom" secondItem="ee7-L3-SJS" secondAttribute="bottom" constant="8" id="l31-hC-2gs"/>
                                     <constraint firstAttribute="centerX" secondItem="WfI-Yp-25u" secondAttribute="centerX" id="la8-Zm-uSf"/>
-                                    <constraint firstItem="ee7-L3-SJS" firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" multiplier="0.95" id="vu2-Eh-LFR"/>
-                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="top" constant="-60" id="xqP-ES-cJT"/>
+                                    <constraint firstItem="WfI-Yp-25u" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="top" id="xqP-ES-cJT"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsC-N3-SWd">
-                                <rect key="frame" x="275" y="542" width="50" height="50"/>
-                                <state key="normal" backgroundImage="settings.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="135" y="351" width="50" height="50"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="295" y="511" width="50" height="50"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="height" secondItem="MBm-j9-Wip" secondAttribute="height" id="4KZ-q9-1Tl"/>
                             <constraint firstAttribute="width" secondItem="MBm-j9-Wip" secondAttribute="width" id="5N6-SP-nhc"/>
-                            <constraint firstItem="gsC-N3-SWd" firstAttribute="top" secondItem="MBm-j9-Wip" secondAttribute="bottom" constant="8" id="M8P-RG-O7d"/>
+                            <constraint firstItem="MBm-j9-Wip" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" id="S3x-6g-tfV"/>
                             <constraint firstAttribute="centerX" secondItem="MBm-j9-Wip" secondAttribute="centerX" id="dNF-Md-gbu"/>
-                            <constraint firstAttribute="centerX" secondItem="gsC-N3-SWd" secondAttribute="centerX" id="dbJ-Fo-rUy"/>
-                            <constraint firstItem="MBm-j9-Wip" firstAttribute="top" secondItem="kRP-YI-8Kd" secondAttribute="bottom" constant="8" id="plG-gx-fD9"/>
-                            <constraint firstItem="ioR-eL-zRl" firstAttribute="top" secondItem="gsC-N3-SWd" secondAttribute="bottom" constant="8" id="x3p-K4-Gyw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pB1-IC-QvN"/>
+                    <navigationItem key="navigationItem" title="Searching" id="pB1-IC-QvN">
+                        <barButtonItem key="rightBarButtonItem" image="settings@3x.png" style="plain" id="Beh-JY-jpH">
+                            <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="weatherTextView" destination="ee7-L3-SJS" id="Z7I-2c-Vin"/>
                         <outlet property="yesterday" destination="WfI-Yp-25u" id="jvP-dC-mnH"/>
@@ -108,7 +103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="726" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-Yo-oSV">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="726" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-Yo-oSV">
                                 <rect key="frame" x="0.0" y="2" width="600" height="369"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5Z-DR-Tjt">
@@ -168,6 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings.png" width="50" height="50"/>
+        <image name="settings@3x.png" width="100" height="100"/>
     </resources>
 </document>

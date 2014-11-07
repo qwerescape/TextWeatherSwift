@@ -32,7 +32,7 @@ class WeatherService: NSObject {
     
     func getCurrentWeatherFor(latitude lat: Double, longitude lng: Double, cityName city: String){
         cityName = city;
-        let request = NSURLRequest(URL: NSURL(string: NSString(format: "https://api.forecast.io/forecast/272c50e5cbaead39cdaa744c9a2d69e9/%f,%f", lat, lng)),
+        let request = NSURLRequest(URL: NSURL(string: NSString(format: "https://api.forecast.io/forecast/272c50e5cbaead39cdaa744c9a2d69e9/%f,%f", lat, lng))!,
             cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy,
             timeoutInterval:30.0)
         let remoteWeatherServiceDelegate = RemoteWeatherServiceDelegate(getTodayWeather, {(data: CLongLong) in
@@ -64,7 +64,7 @@ class WeatherService: NSObject {
         //get yesterday's unix time stamp
         let yesterday = NSDate().dateByAddingTimeInterval(-(24*3600)).timeIntervalSince1970
         NSLog("yesterday time is: %f", yesterday)
-        let request = NSURLRequest(URL: NSURL(string: NSString(format: "https://api.forecast.io/forecast/272c50e5cbaead39cdaa744c9a2d69e9/%f,%f,%.0f", lat, lng, yesterday)),
+        let request = NSURLRequest(URL: NSURL(string: NSString(format: "https://api.forecast.io/forecast/272c50e5cbaead39cdaa744c9a2d69e9/%f,%f,%.0f", lat, lng, yesterday))!,
             cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy,
             timeoutInterval:30.0)
         
